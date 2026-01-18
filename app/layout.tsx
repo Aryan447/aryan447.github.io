@@ -28,7 +28,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${manrope.variable} ${playfair.variable}`} >
+        <html lang="en" className={`${manrope.variable} ${playfair.variable}`}>
+            <head>
+                <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+            </head>
             <body className="antialiased font-sans">
                 {children}
             </body>

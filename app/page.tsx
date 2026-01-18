@@ -1,6 +1,52 @@
-// import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
+
+  const handlePayment = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/create-order', { method: 'POST' });
+      const order = await response.json();
+
+      const options = {
+        key: 'rzp_test_S5E4EoiNrboy8m',
+        amount: order.amount,
+        currency: order.currency,
+        name: 'Aryan - Portfolio',
+        description: 'Get in Touch Payment',
+        order_id: order.id,
+        handler: function (response: any) {
+          alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+          window.location.href = 'mailto:singharyan4477@gmail.com';
+        },
+        prefill: {
+          name: '',
+          email: '',
+          contact: '',
+        },
+        theme: {
+          color: '#d4a373',
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      console.error('Payment failed:', error);
+      alert('Payment failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
     return (
         <>
             <main>
@@ -19,10 +65,12 @@ export default function Home() {
                             <a href="#about" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Philosophy</a>
                             <a href="#contact" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Contact</a>
                         </div>
-                        <a href="mailto:singharyan4477@gmail.com"
-                            className="text-rose-gold border border-rose-gold/20 px-6 py-2 rounded-full hover:bg-rose-gold hover:text-rose-base transition-all duration-300">
-                            Get in touch
-                        </a>
+                        <button
+                            onClick={handlePayment}
+                            disabled={loading}
+                            className="text-rose-gold border border-rose-gold/20 px-6 py-2 rounded-full hover:bg-rose-gold hover:text-rose-base transition-all duration-300 disabled:opacity-50">
+                            {loading ? 'Processing...' : 'Get in touch'}
+                        </button>
                     </div>
                 </nav>
 
