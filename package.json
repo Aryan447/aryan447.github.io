@@ -2,26 +2,32 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "next": "16.1.3",
+    "@fontsource-variable/manrope": "^5.2.8",
+    "@fontsource-variable/playfair-display": "^5.2.8",
+    "@tanstack/react-router": "^1.153.2",
+    "@tanstack/react-start": "^1.154.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^5.1.2",
     "eslint": "^9",
     "eslint-config-next": "16.1.3",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5",
+    "vite": "^7.3.1",
+    "vite-tsconfig-paths": "^6.0.4"
   },
   "ignoreScripts": [
     "sharp",

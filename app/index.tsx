@@ -1,6 +1,12 @@
 // import Image from "next/image";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Component } from "react";
 
-export default function Home() {
+export const Route = createFileRoute('/')({
+    component: Home,
+})
+
+function Home() {
     return (
         <>
             <main>
@@ -10,14 +16,14 @@ export default function Home() {
                 <nav className="fixed w-full z-40 bg-rose-base/90 backdrop-blur-sm py-6 border-b border-rose-muted/10">
                     <div
                         className="max-w-7xl mx-auto px-6 sm:px-12 flex justify-between items-center text-sm font-medium tracking-widest uppercase">
-                        <a href="#"
+                        <Link to="/"
                             className="text-rose-text font-serif italic text-xl tracking-normal normal-case hover:text-rose-rose transition-colors">
                             Aryan.
-                        </a>
+                        </Link>
                         <div className="hidden md:flex space-x-12 text-rose-muted">
-                            <a href="#work" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Selected Work</a>
-                            <a href="#about" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Philosophy</a>
-                            <a href="#contact" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Contact</a>
+                            <Link to="." hash="work" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Selected Work</Link>
+                            <Link to="." hash="about" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Philosophy</Link>
+                            <Link to="." hash="contact" className="hover:text-rose-text transition-colors text-xs tracking-[0.2em]">Contact</Link>
                         </div>
                         <a href="mailto:singharyan4477@gmail.com"
                             className="text-rose-gold border border-rose-gold/20 px-6 py-2 rounded-full hover:bg-rose-gold hover:text-rose-base transition-all duration-300">
