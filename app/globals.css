@@ -8,8 +8,8 @@
    ========================= */
 @theme {
   /* fonts */
-  --font-sans: 'manrope', sans;
-  --font-serif: 'playfair-display' serif;
+  --font-sans: 'Manrope Variable', sans;
+  --font-serif: 'Playfair Display Variable', serif;
 
   /* rose-pine palette */
   --color-rose-base: #191724;
@@ -107,8 +107,4 @@
   transform-origin: bottom left;
 }
 
-@layer base {
-  body {
-    @apply bg-rose-base text-rose-text antialiased font-sans;
-  }
-}
+

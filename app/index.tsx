@@ -1,6 +1,5 @@
 // import Image from "next/image";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Component } from "react";
 
 export const Route = createFileRoute('/')({
     component: Home,
