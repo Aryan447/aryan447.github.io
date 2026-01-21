@@ -1,11 +1,10 @@
-// import Image from "next/image";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router'
+import { Link } from '@tanstack/react-router'
+import '../App.css'
 
-export const Route = createFileRoute('/')({
-    component: Home,
-})
+export const Route = createFileRoute('/')({ component: App })
 
-function Home() {
+function App() {
     return (
         <>
             <main>
@@ -307,5 +306,5 @@ function Home() {
                 </section>
             </main>
         </>
-    );
+    )
 }

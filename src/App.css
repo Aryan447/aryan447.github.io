@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: Manrope, sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-rose-base: #191724;
+  --color-rose-surface: #1f1d2e;
+  --color-rose-overlay: #26233a;
+  --color-rose-muted: #6e6a86;
+  --color-rose-subtle: #908caa;
+  --color-rose-text: #e0def4;
+  --color-rose-love: #eb6f92;
+  --color-rose-gold: #f6c177;
+  --color-rose-rose: #ebbcba;
+  --color-rose-pine: #31748f;
+  --color-rose-foam: #9ccfd8;
+  --color-rose-iris: #c4a7e7;
+  --color-rose-highlight: #2a273f;
+
+  --background-noise: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+}
+
+body {
+  background-color: #191724;
+  color: #e0def4;
+  background-image: var(--background-noise);
+}
+
+.noise-overlay {
+  @apply fixed inset-0 pointer-events-none z-50 opacity-40;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.03"/%3E%3C/svg%3E');
+}
+
+::selection {
+  @apply bg-rose-love text-rose-base;
+}
+
+::-webkit-scrollbar { width: 8px; }
